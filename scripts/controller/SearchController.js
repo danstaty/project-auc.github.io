@@ -1,4 +1,4 @@
-(function () {
+(function () { //Здесь все реализовано по аналогии с HomeController.js
   'use strict';
 
   var SearchController = function (productService) {

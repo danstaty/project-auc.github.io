@@ -1,4 +1,8 @@
-<div ng-controller="HomeController as ctrl">
+<div ng-controller="HomeController as ctrl"> <!--ng-controller деректива использует помимо обычного имя HomeController
+    еще такую конструкцию как as, а дальше ctrl - это имя под которым контроллер будет доступен на скоупе (оно может быть
+    любым). Такая конструкция позволяет автоматически опубликовать наши инстанс поля на скоуп и будут они доступны
+    под именем ctrl. Таким образом нам не нужно отдельно как-то менеджить скоуп, управлять им. Мы просто объявляем класс,
+    мы определеям контроллер (в файле HomeController.js), у него есть метода (прописанные там же), у него есть свойства.-->
   <div id="featured-product-carousel" class="carousel slide" data-pause="hover" data-wrap="true" data-interval="3000">
       <ol class="carousel-indicators">
           <li data-target="#featured-product-carousel" data-slide-to="0" class="active"></li>
@@ -32,7 +36,9 @@
   </h2>
 
   <ul class="list-unstyled" id="items-list">
-      <li class="col-md-4" ng-repeat="product in ctrl.products">
+      <li class="col-md-4" ng-repeat="product in ctrl.products"> <!--Всякий раз когда мы хотим использовать одно из
+      свойств определенных на контроллере, мы исплозуем вот это имя которое мы определили выше - ctrl и через точку
+      указываем любые свойства контроллера-->
           <div class="row">
               <div class="col-xs-4">
                   <a href="javascript:void(0)"><img ng-src="images/{{ product.thumb }}" alt="" class="img-responsive"></a>

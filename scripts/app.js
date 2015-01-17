@@ -1,33 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('auction', ['ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
-      var title = function (page) {
-        return page + ' | Auction';
-      };
+  angular.module('auction', []);/*создаем новый модуль с именем auction. [] - говорят именно о том что создаем,
+   а не ищем сущствующий. Нам нет необходимости сохранять модуль в какую-то переменную, так как он созадется внутри
+   AngularJS контейнера и всегда будет нам доступен для вызова.
+   */
 
-      $routeProvider
-        .when('/', {
-          templateUrl: 'views/home.html',
-          controller: 'HomeController',
-          controllerAs: 'ctrl',
-          title: title('Home')
-        })
-        .when('/search', {
-          templateUrl: 'views/search.html',
-          controller: 'SearchController',
-          controllerAs: 'ctrl',
-          title: title('Search')
-        })
-        .otherwise({
-           redirectTo: '/'
-         });
-    }])
-    .run(['$rootScope', function ($rootScope) {
-      $rootScope.$on('$routeChangeStart', function (event, next) {
-        $rootScope.pageTitle = next.$$route.title;
-      });
-    }]);
 }());
-  
+
